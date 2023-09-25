@@ -1,5 +1,6 @@
 package hello.thymeleaf.basic;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -56,6 +57,14 @@ public class BasicController {
 	public String basicObjects(HttpSession session) {
 		session.setAttribute("sessionData", "Hello Session");
 		return "basic/basic-objects";
+	}
+
+	@GetMapping("/date")
+	public String date(Model model) {
+		// 타임리프 유틸리티 객체 https://www.thymeleaf.org/doc/tutorials/3.0/usingthymeleaf.html#expression-utility- objects
+		// 유틸리티 객체 예시 https://www.thymeleaf.org/doc/tutorials/3.0/usingthymeleaf.html#appendix-b-expression- utility-objects
+		model.addAttribute("localDateTime", LocalDateTime.now());
+		return "basic/date";
 	}
 
 	@Component("helloBean")
