@@ -263,7 +263,7 @@ public class ValidationItemControllerV2 {
 	) {
 		log.info("objectName = {}", bindingResult.getObjectName());
 		log.info("target = {}", bindingResult.getTarget());
-		
+
 		// 검증에 실패하면 다시 입력 폼으로
 		if (bindingResult.hasErrors()) {
 			log.info("errors = {}", bindingResult);
