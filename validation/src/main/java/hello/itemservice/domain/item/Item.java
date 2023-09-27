@@ -9,6 +9,7 @@ import org.hibernate.validator.constraints.Range;
 import lombok.Data;
 
 @Data
+// @ScriptAssert(lang = "javascript", script = "_this.price * _this.qunantity >= 10000", message = "총합이 10000원 넘게 해주세요.")
 public class Item {
 
 	private Long id;
