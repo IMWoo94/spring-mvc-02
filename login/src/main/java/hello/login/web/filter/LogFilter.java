@@ -11,6 +11,7 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 
+import hello.login.web.SessionConst;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -34,7 +35,14 @@ public class LogFilter implements Filter {
 
 		try {
 			log.info("REQUEST [{}][{}]", uuid, requestURI);
+			log.info("chain.doFilter call before = {}", ((HttpServletRequest)request).getSession().getAttribute(
+				SessionConst.LOGIN_MEMBER));
+
 			chain.doFilter(request, response);
+
+			log.info("chain.doFilter call after = {}", ((HttpServletRequest)request).getSession().getAttribute(
+				SessionConst.LOGIN_MEMBER));
+
 		} catch (Exception e) {
 			throw e;
 		} finally {
