@@ -1,5 +1,6 @@
 package hello.exception;
 
+import javax.servlet.DispatcherType;
 import javax.servlet.Filter;
 
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
@@ -9,6 +10,7 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import hello.exception.filter.LogFilter;
+import hello.exception.interceptor.LogInterceptor;
 import hello.exception.interceptor.TestInterceptor;
 
 @Configuration
@@ -29,6 +31,14 @@ public class WebConfig implements WebMvcConfigurer {
 		registry.addInterceptor(new TestInterceptor())
 			.order(0)
 			.addPathPatterns("/**");
+
+		registry.addInterceptor(new LogInterceptor())
+			.order(1)
+			.addPathPatterns("/**")
+			.excludePathPatterns(
+				"/css/**", "/*.ico"
+				, "/error", "/error-page/**" //오류 페이지 경로
+			);
 	}
 
 }
