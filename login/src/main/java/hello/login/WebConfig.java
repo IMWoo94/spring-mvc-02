@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import hello.login.web.filter.LogFilter;
+import hello.login.web.filter.LoginCheckFilter;
 
 @Configuration
 public class WebConfig {
@@ -19,4 +20,14 @@ public class WebConfig {
 		filterFilterRegistrationBean.addUrlPatterns("/*");
 		return filterFilterRegistrationBean;
 	}
+
+	@Bean
+	public FilterRegistrationBean loginCheckFilter() {
+		FilterRegistrationBean<Filter> filterFilterRegistrationBean = new FilterRegistrationBean<>();
+		filterFilterRegistrationBean.setFilter(new LoginCheckFilter());
+		filterFilterRegistrationBean.setOrder(2);
+		filterFilterRegistrationBean.addUrlPatterns("/*");
+		return filterFilterRegistrationBean;
+	}
+
 }

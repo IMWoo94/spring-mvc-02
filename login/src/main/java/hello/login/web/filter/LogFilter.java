@@ -19,14 +19,14 @@ public class LogFilter implements Filter {
 	@Override
 	public void init(FilterConfig filterConfig) throws ServletException {
 		Filter.super.init(filterConfig);
-		log.info("log filter init");
+		log.info("log LogFilter init");
 	}
 
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws
 		IOException,
 		ServletException {
-		log.info("log filter doFilter");
+		log.info("log LogFilter doFilter");
 		HttpServletRequest httpRequest = (HttpServletRequest)request;
 		String requestURI = httpRequest.getRequestURI();
 
@@ -45,6 +45,6 @@ public class LogFilter implements Filter {
 	@Override
 	public void destroy() {
 		Filter.super.destroy();
-		log.info("log filter destroy");
+		log.info("log LogFilter destroy");
 	}
 }
