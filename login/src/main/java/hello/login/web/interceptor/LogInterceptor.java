@@ -25,6 +25,9 @@ public class LogInterceptor implements HandlerInterceptor {
 
 		request.setAttribute(LOG_ID, uuid);
 
+		Object testUUID = request.getAttribute("testUUID");
+		log.info("testUUId = {}", testUUID);
+
 		// @RequestMapping : HandlerMethod
 		// 정적 리소스 : ResourceHttpRequestHandler
 		if (handler instanceof HandlerMethod) {

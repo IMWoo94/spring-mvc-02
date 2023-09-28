@@ -1,6 +1,7 @@
 package hello.login.web.filter;
 
 import java.io.IOException;
+import java.util.UUID;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -30,7 +31,6 @@ public class LoginCheckFilter implements Filter {
 		String requestURI = httpRequest.getRequestURI();
 
 		HttpServletResponse httpResponse = (HttpServletResponse)response;
-
 		try {
 			log.info("인증 체크 필터 시작 {}", requestURI);
 
@@ -46,6 +46,11 @@ public class LoginCheckFilter implements Filter {
 					return;
 				}
 			}
+
+			String testUUID = UUID.randomUUID().toString();
+			log.info("testUUId = {}", testUUID);
+			request.setAttribute("testUUID", testUUID);
+
 			chain.doFilter(request, response);
 		} catch (Exception e) {
 			throw e;
