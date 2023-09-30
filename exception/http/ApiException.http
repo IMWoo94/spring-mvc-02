@@ -5,3 +5,7 @@ GET localhost:8080/api/members/11
 GET localhost:8080/api/members/ex
 Content-Type: application/json
 Accept: application/json
+
+### api 스프링 부트에서 제공하는 BasicErrorController 에서 사용되는 error() 메소드
+GET localhost:8080/api/members/ex
+
