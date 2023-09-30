@@ -15,3 +15,9 @@ GET localhost:8080/api/members/bad
 ###
 GET localhost:8080/api/members/user-ex
 Accept: application/json
+
+###
+GET localhost:8080/api/response-status-ex1
+
+###
+GET localhost:8080/api/response-status-ex2
