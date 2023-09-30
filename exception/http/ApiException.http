@@ -21,3 +21,6 @@ GET localhost:8080/api/response-status-ex1
 
 ###
 GET localhost:8080/api/response-status-ex2
+
+###
+GET localhost:8080/api/default-handler-ex?data=ssss
