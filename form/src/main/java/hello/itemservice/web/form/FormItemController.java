@@ -5,6 +5,8 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,9 +32,14 @@ public class FormItemController {
 	private final ItemRepository itemRepository;
 
 	@GetMapping
-	public String items(Model model) {
+	public String items(Model model, HttpServletRequest request) {
 		List<Item> items = itemRepository.findAll();
 		model.addAttribute("items", items);
+
+		for (Map.Entry<String, Object> stringObjectEntry : model.asMap().entrySet()) {
+			log.info("model = {}", stringObjectEntry.getKey());
+			log.info("model = {}", stringObjectEntry.getValue());
+		}
 		return "form/items";
 	}
 
