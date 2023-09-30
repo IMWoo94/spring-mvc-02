@@ -1,0 +1,16 @@
+### api http 성공
+GET localhost:8080/api2/members/11
+
+### api http 실패
+GET localhost:8080/api2/members/ex
+Content-Type: application/json
+Accept: application/json
+
+### api http
+GET localhost:8080/api2/members/bad
+
+### api http
+GET localhost:8080/api2/members/user-ex
+
+### api http
+GET localhost:8080/api2/members/ex
